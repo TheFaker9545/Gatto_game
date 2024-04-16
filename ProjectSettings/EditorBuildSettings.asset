@@ -15,4 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Livello1.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 6251ec2749e280b499279c598d992f01, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 3ec410416420aea4db10786188d276d5, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 8c4d7c1558e5eaa4eae12fdb15555e33, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: c6c4d26d3f672224f8be1db5e76ebd72, type: 2}

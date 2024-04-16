@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,10 +9,9 @@ public class AmmosManager : MonoBehaviour
     public Sprite Proiettilepieno;
     public Sprite Proiettilevuoto;
 
-    // Update is called once per frame
     void Update()
     {
-        foreach(Image img in ammos)
+        foreach (Image img in ammos)
         {
             img.sprite = Proiettilevuoto;
         }
