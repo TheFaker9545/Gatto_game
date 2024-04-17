@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
 
     public static bool isGameOver;
     public GameObject gameOverScreen;
-    public void awake()
+    private void awake()
     {
         isGameOver = false;
     }

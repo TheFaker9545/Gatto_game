@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class HealthPickup : MonoBehaviour
 {
-    public HealthManager healthManager;
+    // Riferimento a un'istanza di HealthManager
+    public HealthManager healthManagerInstance;
 
     public int healthToAdd = 1;
 
@@ -13,6 +14,13 @@ public class HealthPickup : MonoBehaviour
     private void Start()
     {
         startPos = transform.position;
+
+        // Assegna l'istanza di HealthManager
+        healthManagerInstance = FindObjectOfType<HealthManager>();
+        if (healthManagerInstance == null)
+        {
+            Debug.LogError("HealthManager non trovato nellla scena!");
+        }
     }
 
     private void Update()
@@ -23,27 +31,31 @@ public class HealthPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.CompareTag("Player"))
         {
-
-            if (healthManager.health < healthManager.hearts.Length)
+            // Controlla se l'istanza di HealthManager è valida
+            if (healthManagerInstance != null)
             {
-                Debug.Log("Adding ammo");
-
-                healthManager.health += healthToAdd;
-
-                if (healthManager.health > healthManager.hearts.Length)
+                // Accedi alla variabile hearts tramite l'istanza di HealthManager
+                if (HealthManager.health < healthManagerInstance.hearts.Length)
                 {
-                    healthManager.health = healthManager.hearts.Length;
-                }
+                    Debug.Log("Adding health");
 
-                Destroy(gameObject);
-            }
-            else
-            {
-                Debug.Log("Salute al massimo");
+                    HealthManager.health += healthToAdd;
+
+                    if (HealthManager.health > healthManagerInstance.hearts.Length)
+                    {
+                        HealthManager.health = healthManagerInstance.hearts.Length;
+                    }
+
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    Debug.Log("Salute al massimo");
+                }
             }
         }
     }
 }
+

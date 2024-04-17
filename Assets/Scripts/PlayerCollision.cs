@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -8,7 +9,20 @@ public class PlayerCollision : MonoBehaviour
     {
         if(collision.transform.tag == "Enemy")
         {
-            PlayerManager.isGameOver = true;
+            PlayerManager.isGameOver = false;
+            HealthManager.health--;
+            if(HealthManager.health <= 0){
+                PlayerManager.isGameOver = true;
+                Debug.Log("colpito");
+            } else {
+                StartCoroutine(GetHurt());
+            }
+           
         }
+    }
+    IEnumerator GetHurt(){
+        Physics2D.IgnoreLayerCollision(8,9);
+        yield return new WaitForSeconds(2);
+        Physics2D.IgnoreLayerCollision(8,9, false);
     }
 }
