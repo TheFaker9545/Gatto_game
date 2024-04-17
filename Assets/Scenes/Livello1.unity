@@ -11289,6 +11289,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f950bdbf1126ac04eb31e0cb8f991170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1114980029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453116001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f59334cff9015cf47b2506541737e298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_JumpForce: 400
+  m_CrouchSpeed: 0.36
+  m_MovementSmoothing: 0.05
+  m_AirControl: 1
+  m_WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 119
+  m_GroundCheck: {fileID: 897657226}
+  m_CeilingCheck: {fileID: 0}
+  m_CrouchDisableCollider: {fileID: 0}
+  OnLandEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCrouchEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1207665401 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1184758194797460158, guid: f78cca631e51b5143935d723cecc12e4, type: 3}
@@ -12290,6 +12318,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7175969254452240235, guid: ad5b8158d2655194581590d9fa29bb02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1114980024}
+    - targetCorrespondingSourceObject: {fileID: 7175969254452240235, guid: ad5b8158d2655194581590d9fa29bb02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1114980029}
   m_SourcePrefab: {fileID: 100100000, guid: ad5b8158d2655194581590d9fa29bb02, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
