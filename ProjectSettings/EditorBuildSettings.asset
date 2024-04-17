@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Livello1.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: ed9c0b2ce2422bb44b61e07a3988885b
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 6251ec2749e280b499279c598d992f01, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 3ec410416420aea4db10786188d276d5, type: 2}
