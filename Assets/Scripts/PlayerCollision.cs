@@ -14,6 +14,7 @@ public class PlayerCollision : MonoBehaviour
             if(HealthManager.health <= 0){
                 PlayerManager.isGameOver = true;
                 Debug.Log("colpito");
+                gameObject.SetActive(false);
             } else {
                 StartCoroutine(GetHurt());
             }
