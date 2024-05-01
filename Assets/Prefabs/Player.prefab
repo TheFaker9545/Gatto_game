@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6804312040661102496}
   - component: {fileID: 3500702843535934599}
   - component: {fileID: 7915825309114936533}
+  - component: {fileID: 8008602240459731939}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -242,6 +243,27 @@ MonoBehaviour:
   OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8008602240459731939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7175969254452240235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 533f49d28f174a64f8a7a08dad19c4f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1825514691524828070, guid: 540e7b07fbace824b9ca4061ec4720fc, type: 3}
+  offsetDistance: 2
+  shootDelay: 0.5
+  rb: {fileID: 1618662242132980455}
+  ammoManager: {fileID: 0}
+  groundCheck: {fileID: 4980071625145485933}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &7479816462860766329
 GameObject:
   m_ObjectHideFlags: 0
