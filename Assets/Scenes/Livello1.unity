@@ -12422,7 +12422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8494510314751329475, guid: b87e58084f18da940ba2570bd0ced8a0, type: 3}
       propertyPath: m_TagString
-      value: Danger
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13077,7 +13077,8 @@ PrefabInstance:
       propertyPath: m_GroundCheck
       value: 
       objectReference: {fileID: 897657226}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8008602240459731939, guid: ad5b8158d2655194581590d9fa29bb02, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

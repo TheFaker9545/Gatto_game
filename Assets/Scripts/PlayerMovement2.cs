@@ -84,7 +84,8 @@ public GameObject projectilePrefab;
     }
 
     void Shoot()
-    {
+    {   
+        
         if (ammoManager.munizioni > 0)
         {
             Vector3 offset = isFacingRight ? Vector3.right * offsetDistance : Vector3.left * offsetDistance;
