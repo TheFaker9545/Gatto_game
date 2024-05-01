@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6097366231079071202}
   - component: {fileID: 5615104519648857517}
   - component: {fileID: 6590239995673021421}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: cappello
-  m_TagString: Untagged
+  m_TagString: Danger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

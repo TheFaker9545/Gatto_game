@@ -21,7 +21,6 @@ public class HealthManager : MonoBehaviour
         foreach(Image img in hearts)
         {
             img.sprite = emptyHeart;
-            Debug.Log(hearts.ToString());
         }
         for (int i = 0; i < health; i++)
         {
