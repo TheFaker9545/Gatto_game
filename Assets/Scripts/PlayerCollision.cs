@@ -7,7 +7,7 @@ public class PlayerCollision : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.tag == "Enemy")
+        if(collision.transform.tag == "Enemy" || collision.transform.tag == "Danger")
         {
             PlayerManager.isGameOver = false;
             HealthManager.health--;
@@ -19,6 +19,10 @@ public class PlayerCollision : MonoBehaviour
                 StartCoroutine(GetHurt());
             }
            
+        }
+        if(collision.transform.tag == "Win")
+        {
+            Debug.Log("Hai vinto!");
         }
     }
     IEnumerator GetHurt(){

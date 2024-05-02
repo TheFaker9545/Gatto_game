@@ -7,17 +7,23 @@ public class PlayerManager : MonoBehaviour
 {
 
     public static bool isGameOver;
+    public static bool isWin;
     public GameObject gameOverScreen;
-    
+    public GameObject endScreen;
     public GameObject PauseScreen;
+    private GameObject player;
+
     private void awake()
     {
+        isWin = false;
         isGameOver = false;
     }
     // Start is called before the first frame update
     void Start()
     {
+        isWin = false;
         isGameOver = false;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -26,6 +32,10 @@ public class PlayerManager : MonoBehaviour
         if(isGameOver)
         {
             gameOverScreen.SetActive(true);
+        }
+        if(isWin)
+        {
+            endScreen.SetActive(true);
         }
     }
     public void GoHome()
@@ -43,10 +53,12 @@ public class PlayerManager : MonoBehaviour
     {
         Time.timeScale = 0;
         PauseScreen.SetActive(true);
+        player.gameObject.SetActive(false);
     }
     public void resume()
     {
         Time.timeScale = 1;
         PauseScreen.SetActive(false);
+        player.gameObject.SetActive(true);
     }
 }
