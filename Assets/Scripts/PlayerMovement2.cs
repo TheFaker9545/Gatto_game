@@ -31,6 +31,7 @@ public GameObject projectilePrefab;
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
+            AudioManager.instance.Play("Salto");
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
 

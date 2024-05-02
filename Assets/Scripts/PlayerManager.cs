@@ -8,6 +8,8 @@ public class PlayerManager : MonoBehaviour
 
     public static bool isGameOver;
     public GameObject gameOverScreen;
+    
+    public GameObject PauseScreen;
     private void awake()
     {
         isGameOver = false;
@@ -35,5 +37,16 @@ public class PlayerManager : MonoBehaviour
     {
         SceneManager.LoadScene("Livello1");
         Start();
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        PauseScreen.SetActive(true);
+    }
+    public void resume()
+    {
+        Time.timeScale = 1;
+        PauseScreen.SetActive(false);
     }
 }
