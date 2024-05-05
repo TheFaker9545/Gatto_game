@@ -19,20 +19,14 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
-
         float distance = Vector2.Distance(transform.position,player.transform.position);
-
         if(distance < 35){
             timer += Time.deltaTime;
-
             if(timer > 2.95){
                 timer = 0;
                 shoot();
+            }
         }
-        }
-
-       
     }
 
     void shoot(){

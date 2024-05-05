@@ -25,6 +25,7 @@ public class End : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.CompareTag("Player")){
+                AudioManager.instance.Stop("Livello1");
                 AudioManager.instance.Play("Win");
                 PlayerManager.isWin = true;
                 player.gameObject.SetActive(false);

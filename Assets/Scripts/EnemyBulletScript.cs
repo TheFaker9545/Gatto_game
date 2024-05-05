@@ -35,9 +35,12 @@ public class EnemyBulletScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.CompareTag("Player")){
             Destroy(gameObject);
+            AudioManager.instance.Play("Colpito");
             HealthManager.health--;
             if(HealthManager.health<=0){
                 PlayerManager.isGameOver = true;
+                AudioManager.instance.Stop("Livello1");
+                AudioManager.instance.Play("GameOver");
                 player.gameObject.SetActive(false);
             }
         }

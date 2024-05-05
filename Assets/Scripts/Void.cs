@@ -23,7 +23,10 @@ public class Void : MonoBehaviour
             HealthManager.health = 0;
             if(HealthManager.health<=0){
                 PlayerManager.isGameOver = true;
+                AudioManager.instance.Stop("Livello1");
+                AudioManager.instance.Play("GameOver");
                 player.gameObject.SetActive(false);
+
             }
         }
     }

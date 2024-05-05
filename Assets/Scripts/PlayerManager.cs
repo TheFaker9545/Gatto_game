@@ -41,6 +41,7 @@ public class PlayerManager : MonoBehaviour
     public void GoHome()
     {
         SceneManager.LoadScene("Menù");
+        AudioManager.instance.Stop("Livello1");
         Start();
     }
       public void RestartLevel()
