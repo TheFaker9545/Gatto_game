@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement2 : MonoBehaviour
 {
     PlayerControl controls;
 
-public GameObject projectilePrefab;
+    public GameObject projectilePrefab;
     public float offsetDistance = 2.0f;
     private float horizontal;
     private float speed = 14f;
@@ -18,57 +17,45 @@ public GameObject projectilePrefab;
     bool isGrounded;
     float direction = 0;
     public Rigidbody2D rb;
-
-
     public AmmosManager ammoManager;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    
+    bool isJumping = false; // Variabile per tracciare lo stato del salto
 
-    void Update()
-    {
-        horizontal = Input.GetAxisRaw("Horizontal");
-
-        if (Input.GetButtonDown("Jump") && IsGrounded())
-        {
-            AudioManager.instance.Play("Salto");
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        }
-
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
-
-        shootTimer -= Time.deltaTime;
-
-        if (shootTimer <= 0f && Input.GetKeyDown(KeyCode.E))
-        {
-            Shoot();
-            shootTimer = shootDelay;
-        }
-
-        Flip();
-    }
-
-    private void Awake()
+    void Awake()
     {
         controls = new PlayerControl();
         controls.Enable();
 
-        controls.Land.Move.performed += ctx =>
-        {
-            direction = ctx.ReadValue<float>();
-        };
+        controls.Land.Jump.performed += ctx => OnJump();
+        controls.Land.Shoot.performed += ctx => OnShoot();
 
-        controls.Land.Jump.performed += ctx => Jump();
+        shootTimer = shootDelay;
     }
-    
-    private void FixedUpdate()
+
+    void Update()
+    {
+        horizontal = controls.Land.Move.ReadValue<float>();
+        shootTimer -= Time.deltaTime;
+
+        Flip();
+    }
+
+    void OnJump()
+{
+    if (IsGrounded())
+    {
+        AudioManager.instance.Play("Salto");
+        rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+    }
+}
+
+    void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
-    private void Flip()
+
+    void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
@@ -78,16 +65,15 @@ public GameObject projectilePrefab;
             transform.localScale = localScale;
         }
     }
-    
+
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
-    void Shoot()
-    {   
-        
-        if (ammoManager.munizioni > 0)
+    void OnShoot()
+    {
+        if (shootTimer <= 0f && ammoManager.munizioni > 0)
         {
             Vector3 offset = isFacingRight ? Vector3.right * offsetDistance : Vector3.left * offsetDistance;
             GameObject projectile = Instantiate(projectilePrefab, transform.position + offset, Quaternion.identity);
@@ -99,34 +85,26 @@ public GameObject projectilePrefab;
             projectileRenderer.flipX = !isFacingRight;
 
             ammoManager.munizioni--;
+
+            shootTimer = shootDelay;
         }
     }
 
-    void Jump()
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isGrounded)
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            numberOfJumps = 0;
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-            numberOfJumps++;
-        }
-        else
-        {
-            if(numberOfJumps == 1)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-                numberOfJumps++;
-            }
+            isJumping = false; // Imposta isJumping a false quando il giocatore tocca il suolo
         }
     }
 
-    private void OnEnable()
+    void OnEnable()
     {
         controls.Enable();
     }
-    private void OnDisable()
+
+    void OnDisable()
     {
         controls.Disable();
     }
 }
-

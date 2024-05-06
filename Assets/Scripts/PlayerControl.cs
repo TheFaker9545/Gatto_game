@@ -33,7 +33,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""id"": ""1f099325-8d08-4817-8764-383a3ff69f7e"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)"",
+                    ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
@@ -42,7 +42,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""id"": ""3289746a-80fa-4aa7-bc96-0227e4c6512a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
@@ -51,27 +51,16 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""id"": ""1fcc4c38-fa36-4079-85f5-7f89fbca9c7f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""d8cfd268-063b-4849-a828-497ff6864753"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""1D Axis"",
                     ""id"": ""596c4d79-3bbd-447a-acb5-0be34f548c7a"",
                     ""path"": ""1DAxis"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Move"",
@@ -104,7 +93,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""name"": ""1D Axis AD"",
                     ""id"": ""1f0b85f5-e116-48a1-b1b6-bb0cd68998f4"",
                     ""path"": ""1DAxis"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Move"",
@@ -137,7 +126,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""be7519d1-acf3-4a71-9c9b-8551b5e1ab4f"",
                     ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Press"",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",

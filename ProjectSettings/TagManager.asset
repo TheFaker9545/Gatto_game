@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Danger
   - Win
+  - Ground
   layers:
   - Default
   - TransparentFX
