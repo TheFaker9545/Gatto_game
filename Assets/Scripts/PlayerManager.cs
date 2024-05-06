@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
-
     public static bool isGameOver;
     public static bool isWin;
     public GameObject gameOverScreen;
@@ -23,7 +23,6 @@ public class PlayerManager : MonoBehaviour
     {
         isWin = false;
         isGameOver = false;
-        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
