@@ -29,10 +29,8 @@ public class Projectile : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Player"))
         {
-            // Check if the collision is with an object tagged as "Enemy"
             if (other.gameObject.CompareTag("Enemy"))
             {
-                // Destroy the enemy
                 Destroy(other.gameObject);
             }
 
@@ -46,7 +44,6 @@ public class Projectile : MonoBehaviour
 
     void PlayDestructionAnimation()
     {
-        // Trigger the "Destroy" animation in the Animator component
         if (animator != null)
         {
             animator.SetTrigger("Destroy");
@@ -55,7 +52,6 @@ public class Projectile : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        // Destroy the projectile if it becomes invisible
         Destroy(gameObject);
     }
 }

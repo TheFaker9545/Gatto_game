@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,13 +15,18 @@ public class PlayerMovement2 : MonoBehaviour
     public float shootDelay = 0.5f;
     private float shootTimer = 0f;
     int numberOfJumps = 0;
-    bool isGrounded;
     float direction = 0;
     public Rigidbody2D rb;
     public AmmosManager ammoManager;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    bool isJumping = false; // Variabile per tracciare lo stato del salto
+    bool isJumping = false;
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Awake()
     {
@@ -47,12 +53,16 @@ public class PlayerMovement2 : MonoBehaviour
     {
         AudioManager.instance.Play("Salto");
         rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-    }
+        isJumping = true;
+        animator.SetBool("IsJumping", isJumping);
+        }
 }
 
     void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        animator.SetFloat("xVelocity", Math.Abs(rb.velocity.x));
+        animator.SetFloat("yVelocity", rb.velocity.x);
     }
 
     void Flip()
@@ -94,7 +104,8 @@ public class PlayerMovement2 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isJumping = false; // Imposta isJumping a false quando il giocatore tocca il suolo
+            isJumping = false;
+            animator.SetBool("IsJumping", isJumping);
         }
     }
 
