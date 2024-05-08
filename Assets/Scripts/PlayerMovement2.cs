@@ -85,6 +85,7 @@ public class PlayerMovement2 : MonoBehaviour
     {
         if (shootTimer <= 0f && ammoManager.munizioni > 0)
         {
+            AudioManager.instance.Play("Sparo");            
             Vector3 offset = isFacingRight ? Vector3.right * offsetDistance : Vector3.left * offsetDistance;
             GameObject projectile = Instantiate(projectilePrefab, transform.position + offset, Quaternion.identity);
 
