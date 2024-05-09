@@ -8,21 +8,29 @@ public class PlayerManager : MonoBehaviour
 {
     public static bool isGameOver;
     public static bool isWin;
+    public static bool isBoss;
+    public static bool boss;
     public GameObject gameOverScreen;
     public GameObject endScreen;
     public GameObject PauseScreen;
     private GameObject player;
+    public GameObject BossBar;
+    public GameObject Boss;
+    public GameObject winFlag;
 
-    private void awake()
+    private void Awake()
     {
         isWin = false;
         isGameOver = false;
+        isBoss = false;
+
     }
     // Start is called before the first frame update
     void Start()
     {
         isWin = false;
         isGameOver = false;
+        isBoss = false;
     }
 
     // Update is called once per frame
@@ -36,6 +44,21 @@ public class PlayerManager : MonoBehaviour
         {
             endScreen.SetActive(true);
         }
+        if(isBoss)
+        {
+            BossBar.SetActive(true);
+            Boss.SetActive(true);
+            winFlag.SetActive(false);
+        }
+        if(isBoss == false){
+            BossBar.SetActive(false);
+            Boss.SetActive(false);    
+            winFlag.SetActive(true);  
+        }
+    }
+        public void BossDefeated()
+    {
+        winFlag.SetActive(true);
     }
     public void GoHome()
     {

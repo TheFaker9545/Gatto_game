@@ -41,6 +41,8 @@ public class HealthPickup : MonoBehaviour
                 {
                     Debug.Log("Adding health");
 
+                    AudioManager.instance.Play("Cura");
+
                     HealthManager.health += healthToAdd;
 
                     if (HealthManager.health > healthManagerInstance.hearts.Length)

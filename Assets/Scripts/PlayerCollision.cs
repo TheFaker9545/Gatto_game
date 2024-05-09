@@ -14,6 +14,8 @@ public class PlayerCollision : MonoBehaviour
             if(HealthManager.health <= 0){
                 PlayerManager.isGameOver = true;
                 Debug.Log("colpito");
+                AudioManager.instance.Stop("Livello1");
+                AudioManager.instance.Play("GameOver");
                 gameObject.SetActive(false);
             } else {
                 StartCoroutine(GetHurt());

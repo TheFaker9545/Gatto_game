@@ -10,6 +10,7 @@ public class Monete : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            AudioManager.instance.Play("Moneta");
             moneteCollected++;
             Destroy(gameObject); // Distruggi la moneta una volta raccolta
         }

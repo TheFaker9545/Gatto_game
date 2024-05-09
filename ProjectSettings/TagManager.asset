@@ -9,6 +9,7 @@ TagManager:
   - Danger
   - Win
   - Ground
+  - Boss
   layers:
   - Default
   - TransparentFX

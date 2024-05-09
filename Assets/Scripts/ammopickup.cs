@@ -30,6 +30,7 @@ public class AmmoPickup : MonoBehaviour
             if (ammoManager.munizioni < ammoManager.ammos.Length)
             {
                 Debug.Log("Adding ammo");
+                AudioManager.instance.Play("Ricarico");
 
                 ammoManager.munizioni += ammoToAdd;
 

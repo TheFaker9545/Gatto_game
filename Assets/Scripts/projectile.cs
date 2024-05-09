@@ -4,6 +4,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 10f;
     private Vector3 direction;
+    private Boss boss;
     private bool isMoving = true;
     private Animator animator;
 
@@ -32,6 +33,14 @@ public class Projectile : MonoBehaviour
             if (other.gameObject.CompareTag("Enemy"))
             {
                 Destroy(other.gameObject);
+            }
+            if (other.gameObject.CompareTag("Boss"))
+            {
+                boss = other.gameObject.GetComponent<Boss>();
+                    if (boss != null)
+                {
+                    boss.health--;
+                }
             }
 
             PlayDestructionAnimation();

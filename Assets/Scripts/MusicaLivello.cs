@@ -7,6 +7,7 @@ public class MusicaLivello : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioManager.instance.Stop("GameOver");
         AudioManager.instance.Play("Livello1");
     }
 
