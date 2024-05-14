@@ -29,7 +29,7 @@ public class Monete : MonoBehaviour
     }
 }
     // Chiamato dopo che tutte le collisioni sono state risolte
-    private void LateUpdate()
+    public void LateUpdate()
     {
         UpdateMoneteDisplay();
     }

@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -17,6 +14,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject BossBar;
     public GameObject Boss;
     public GameObject winFlag;
+    public GameObject moneteDisplay;
 
     private void Awake()
     {
@@ -53,13 +51,21 @@ public class PlayerManager : MonoBehaviour
         if(isBoss == false){
             BossBar.SetActive(false);
             Boss.SetActive(false);    
-            winFlag.SetActive(true);  
+            winFlag.SetActive(true);
         }
     }
-        public void BossDefeated()
+    public void BossDefeated()
     {
         winFlag.SetActive(true);
     }
+
+    private void ResetCoinCounter()
+    {
+        Monete.moneteCollected = 0;
+        Monete mon = gameObject.AddComponent<Monete>();
+        mon.LateUpdate();
+    }
+
     public void GoHome()
     {
         SceneManager.LoadScene("Menù");
@@ -69,6 +75,7 @@ public class PlayerManager : MonoBehaviour
       public void RestartLevel()
     {
         SceneManager.LoadScene("Livello1");
+        ResetCoinCounter();
         Start();
     }
 

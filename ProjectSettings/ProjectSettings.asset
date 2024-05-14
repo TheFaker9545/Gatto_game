@@ -58,8 +58,8 @@ PlayerSettings:
   iosShowActivityIndicatorOnLoading: -1
   androidShowActivityIndicatorOnLoading: 2
   iosUseCustomAppBackgroundBehavior: 0
-  allowedAutorotateToPortrait: 1
-  allowedAutorotateToPortraitUpsideDown: 1
+  allowedAutorotateToPortrait: 0
+  allowedAutorotateToPortraitUpsideDown: 0
   allowedAutorotateToLandscapeRight: 1
   allowedAutorotateToLandscapeLeft: 1
   useOSAutorotation: 1
@@ -139,8 +139,11 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
-  bundleVersion: 0.0.6
-  preloadedAssets: []
+  bundleVersion: 0.0.11
+  preloadedAssets:
+  - {fileID: 3125191658285647764, guid: 3ec410416420aea4db10786188d276d5, type: 2}
+  - {fileID: 11400000, guid: 8c4d7c1558e5eaa4eae12fdb15555e33, type: 2}
+  - {fileID: 11400000, guid: 6251ec2749e280b499279c598d992f01, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -161,7 +164,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.DefaultCompany.com.unity.template.mobile2D
+    Android: com.GPO.Gatto
     Lumin: com.DefaultCompany.com.unity.template.mobile2D
     Standalone: com.DefaultCompany.com.unity.template.mobile2D
     iPhone: com.DefaultCompany.com.unity.template.mobile2D
@@ -173,9 +176,9 @@ PlayerSettings:
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 22
-  AndroidTargetSdkVersion: 0
-  AndroidPreferredInstallLocation: 1
+  AndroidMinSdkVersion: 24
+  AndroidTargetSdkVersion: 33
+  AndroidPreferredInstallLocation: 0
   aotOptions: 
   stripEngineCode: 1
   iPhoneStrippingLevel: 0
@@ -263,8 +266,8 @@ PlayerSettings:
   useCustomGradlePropertiesTemplate: 0
   useCustomGradleSettingsTemplate: 0
   useCustomProguardFile: 0
-  AndroidTargetArchitectures: 1
-  AndroidTargetDevices: 0
+  AndroidTargetArchitectures: 3
+  AndroidTargetDevices: 1
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: 
@@ -803,9 +806,11 @@ PlayerSettings:
   scriptingDefineSymbols: {}
   additionalCompilerArguments: {}
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    Android: 1
   il2cppCompilerConfiguration: {}
-  il2cppCodeGeneration: {}
+  il2cppCodeGeneration:
+    Android: 1
   managedStrippingLevel:
     EmbeddedLinux: 1
     GameCoreScarlett: 1
